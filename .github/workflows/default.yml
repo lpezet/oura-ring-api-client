@@ -1,0 +1,36 @@
+name: Node.js CI
+on: [push]
+jobs:
+  test:
+    name: Node ${{ matrix.node }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [10, 12, 14]
+        os: [ubuntu-latest, windows-latest]
+    
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+
+      - name: Set Node.js version
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build application
+        run: npm run build
+
+      - name: Test application
+        run: npm test
+
+      - name: Install coveralls
+        run: npm install --save-dev coveralls
+
+      - name: Run coveralls
+        run: npm run coverage
