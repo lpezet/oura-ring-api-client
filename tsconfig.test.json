@@ -4,7 +4,7 @@
     "strict": false,
     "strictPropertyInitialization": true,
   },
-  "include": ["**/*.spec.ts"],
+  "include": [ "./src/**/*", "**/*.spec.ts"],
   "exclude": [
     "node_modules",
     "dist"

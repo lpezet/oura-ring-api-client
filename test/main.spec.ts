@@ -1,4 +1,4 @@
-import { OuraApiV2Client, ApiClientInterface, RequestProps, DailyActivityResponse } from "../src";
+import { OuraApiV2Client, ApiClientInterface, RequestProps, DailyActivityResponse } from "@api";
 import Response from "../src/types/Response";
 
 describe("main", () => {

@@ -4,7 +4,6 @@
   "description": "API client for Oura API",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "type": "module",
   "scripts": {
     "dev": "ts-node src/index.ts",
     "clean": "rimraf dist/*",
@@ -21,8 +20,8 @@
     "lint": "npm-run-all eslint check-types",
     "lint:fix": "npm-run-all eslint:fix check-types format",
     "test": "jest",
-    "coveralls.off": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls",
-    "coveralls": "jest --coverage"
+    "coverage": "jest --coverage && coveralls < coverage/lcov.info",
+    "coverage.local": "jest --coverage"
   },
   "keywords": [
     "oura",
@@ -83,6 +82,14 @@
     "axios": "^0.26.1"
   },
   "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "^@api/(.*)$": "<rootDir>/src/$1",
+      "^@api$": "<rootDir>/src/index.ts"
+    }
+  },
+  "jest.old": {
     "moduleFileExtensions": [
       "js",
       "json",
@@ -91,7 +98,7 @@
     "rootDir": "test",
     "transform": {
       "^.+\\.(t|j)s$": [
-        "ts-jest", 
+        "ts-jest",
         {
           "tsconfig": "tsconfig.test.json"
         }
@@ -103,8 +110,8 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node",
     "moduleNameMapper": {
-      "^@api/(.*)$": "<rootDir>/../src/$1",
-      "^@api$": "<rootDir>/../src/index.ts"
+      "^@api/(.*)$": "./src/$1",
+      "^@api$": "./src/index.ts"
     }
   }
 }
