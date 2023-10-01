@@ -6,6 +6,7 @@ import type { ActivityContributors } from "./ActivityContributors";
 import type { METSample } from "./METSample";
 
 export type DailyActivityModel = {
+  id?: string;
   /**
    * 5-minute activity classification for the activity period:
    * * ```0```    non wear

@@ -4,5 +4,14 @@
     "module": "esnext",
     "outDir": "./dist",
     "declaration": true
-  }
+  },
+  "tsc-alias": {
+    "resolveFullPaths": true
+  },
+  "exclude": [
+    "node_modules", 
+    "test", 
+    "dist", 
+    "**/*spec.ts"
+  ]
 }

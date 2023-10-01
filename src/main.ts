@@ -48,7 +48,6 @@ export class OuraApiV2Client {
     if (props?.nextToken) {
       parameters.set("next_token", props.nextToken);
     }
-
     const response = await this.api.fetch<DailyActivityResponse>(
       "/v2/usercollection/daily_activity",
       parameters.toString()
