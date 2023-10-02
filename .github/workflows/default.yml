@@ -38,5 +38,4 @@ jobs:
       - name: Run coveralls
         uses: coverallsapp/github-action@v2.2.3
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           flag-name: ${{matrix.os}}-node-${{ matrix.node }}
