@@ -29,8 +29,8 @@ jobs:
       - name: Build application
         run: npm run build
 
-      - name: Test application
-        run: npm test
+      - name: Test application and generate coverage
+        run: npm run coverage
 
       - name: Install coveralls
         run: npm install --save-dev coveralls
