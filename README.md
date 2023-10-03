@@ -60,8 +60,8 @@ To publish next version of `oura-ring-api-client`, run the following:
 
 ```bash
 npm version patch
-git push --tags origin master
-npm run dist
+git push origin [tag name]
+npm run build
 npm publish --access public
 ```
 
