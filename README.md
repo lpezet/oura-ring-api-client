@@ -4,7 +4,7 @@ Typescript client for [Oura Ring API](https://cloud.ouraring.com/v2/docs).
 This is a restructuring of the code provided by [Takahiro MITSUOKA](https://github.com/mitsuoka0423/oura-api-v2-client).
 
 [![NPM Version][npm-badge]][npm-url]
-[![Linux Build][build-badge]][travis-url]
+[![Linux Build][build-badge]][build-url]
 [![Test Coverage][coveralls-badge]][coveralls-url]
 [![Known Vulnerabilities][vulnerabilities-badge]][vulnerabilities-url]
 [![CodeFactor][codefactor-badge]][codefactor-url]
@@ -68,6 +68,7 @@ npm publish --access public
 [npm-badge]: https://badge.fury.io/js/%40lpezet%2Foura-ring-api-client.svg
 [npm-url]: https://npmjs.com/package/@lpezet/oura-ring-api-client
 [build-badge]: https://github.com/lpezet/oura-ring-api-client/actions/workflows/default.yml/badge.svg
+[build-url]: https://github.com/lpezet/oura-ring-api-client/actions/workflows/default.yml
 [coveralls-badge]: https://coveralls.io/repos/github/lpezet/oura-ring-api-client/badge.svg?branch=main
 [coveralls-url]: https://coveralls.io/github/lpezet/oura-ring-api-client?branch=main
 [vulnerabilities-badge]: https://snyk.io/test/github/lpezet/oura-ring-api-client/badge.svg
