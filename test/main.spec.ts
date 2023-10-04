@@ -1,4 +1,4 @@
-import { OuraApiV2Client, ApiClientInterface, RequestProps, DailyActivityResponse } from "@api";
+import { OuraApiV2Client, ApiClientInterface, RequestProps, DailyActivityResponse, PersonalInfoResponse, HeartRateResponse, SessionResponse, WorkoutResponse, TagResponse, HeartRateRequestProps, SleepResponse_V1, ReadinessResponse_V1 } from "@api";
 import Response from "../src/types/Response";
 
 describe("main", () => {
@@ -12,11 +12,121 @@ describe("main", () => {
         testee = new OuraApiV2Client('', apiClientMock);
     });
 
+    it("readiness_v1", async () => {
+        const props: RequestProps = {
+            startDate: '2023-01-01',
+            endDate: '2023-01-31',
+            nextToken: 'fake'
+        }
+        const expected: ReadinessResponse_V1 = {
+            readiness: []
+        };
+        (apiClientMock.fetch as jest.Mock).mockReturnValueOnce(new Response<ReadinessResponse_V1>(200, expected));
+        const actual = await testee.readiness_v1(props);
+        expect(apiClientMock.fetch).toHaveBeenCalledTimes(1);
+        expect(actual).toBe(expected);
+    });
+
+    it("sleep_v1", async () => {
+        const props: RequestProps = {
+            startDate: '2023-01-01',
+            endDate: '2023-01-31',
+            nextToken: 'fake'
+        }
+        const expected: SleepResponse_V1 = {
+            sleep: []
+        };
+        (apiClientMock.fetch as jest.Mock).mockReturnValueOnce(new Response<SleepResponse_V1>(200, expected));
+        const actual = await testee.sleep_v1(props);
+        expect(apiClientMock.fetch).toHaveBeenCalledTimes(1);
+        expect(actual).toBe(expected);
+    });
+
+    it("tags", async () => {
+        const props: RequestProps = {
+            startDate: '2023-01-01',
+            endDate: '2023-01-31',
+            nextToken: 'fake'
+        }
+        const expected: TagResponse = {
+            data: [],
+            next_token: 'something'
+        };
+        (apiClientMock.fetch as jest.Mock).mockReturnValueOnce(new Response<TagResponse>(200, expected));
+        const actual = await testee.tags(props);
+        expect(apiClientMock.fetch).toHaveBeenCalledTimes(1);
+        expect(actual).toBe(expected);
+    });
+
+
+    it("workouts", async () => {
+        const props: RequestProps = {
+            startDate: '2023-01-01',
+            endDate: '2023-01-31',
+            nextToken: 'fake'
+        }
+        const expected: WorkoutResponse = {
+            data: [],
+            next_token: 'something'
+        };
+        (apiClientMock.fetch as jest.Mock).mockReturnValueOnce(new Response<WorkoutResponse>(200, expected));
+        const actual = await testee.workouts(props);
+        expect(apiClientMock.fetch).toHaveBeenCalledTimes(1);
+        expect(actual).toBe(expected);
+    });
+
+    it("sessions", async () => {
+        const props: RequestProps = {
+            startDate: '2023-01-01',
+            endDate: '2023-01-31',
+            nextToken: 'fake'
+        }
+        const expected: SessionResponse = {
+            data: [],
+            next_token: 'something'
+        };
+        (apiClientMock.fetch as jest.Mock).mockReturnValueOnce(new Response<SessionResponse>(200, expected));
+        const actual = await testee.sessions(props);
+        expect(apiClientMock.fetch).toHaveBeenCalledTimes(1);
+        expect(actual).toBe(expected);
+    });
+
+    it("heartRate", async () => {
+        const props: HeartRateRequestProps = {
+            startDate_timestamp: '2023-01-01',
+            endDate_timestamp: '2023-01-31',
+            nextToken: 'fake'
+        }
+        const expected: HeartRateResponse = {
+            data: [],
+            next_token: 'something'
+        };
+        (apiClientMock.fetch as jest.Mock).mockReturnValueOnce(new Response<HeartRateResponse>(200, expected));
+        const actual = await testee.heartRate(props);
+        expect(apiClientMock.fetch).toHaveBeenCalledTimes(1);
+        expect(actual).toBe(expected);
+    });
+
+    it("personalInfo", async () => {
+        const expected: PersonalInfoResponse = {
+            age: 130,
+            weight: 200,
+            height: 72,
+            biological_sex: 'female',
+            email: 'hello@world.com'
+        };
+        (apiClientMock.fetch as jest.Mock).mockReturnValueOnce(new Response<PersonalInfoResponse>(200, expected));
+        const actual = await testee.personalInfo();
+        expect(apiClientMock.fetch).toHaveBeenCalledTimes(1);
+        expect(actual).toBe(expected);
+    });
+
 
     it("dailyActivity", async () => {
         const props: RequestProps = {
             startDate: '2023-01-01',
-            endDate: '2023-01-31'
+            endDate: '2023-01-31',
+            nextToken: 'fake'
         }
         const expected: DailyActivityResponse = {
             "data":[
@@ -67,4 +177,5 @@ describe("main", () => {
         expect(apiClientMock.fetch).toHaveBeenCalledTimes(1);
         expect(actual).toBe(expected);
     });
+
 });

@@ -5,7 +5,7 @@ import Response from "./types/Response";
 export default class ApiClient implements ApiClientInterface {
   instance: AxiosInstance;
 
-  constructor(accessToken: string) {
+  constructor(accessToken: string | null) {
     if (!accessToken) {
       throw new Error("Required access token");
     }

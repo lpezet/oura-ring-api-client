@@ -29,9 +29,11 @@ export type { WorkoutModel } from "./models/WorkoutModel";
 export type { WorkoutResponse } from "./models/WorkoutResponse";
 export type { WorkoutSource } from "./models/WorkoutSource";
 
+/*
 export { DailyActivityService } from "./services/DailyActivityService";
 export { HeartRateService } from "./services/HeartRateService";
 export { PersonalInfoService } from "./services/PersonalInfoService";
 export { SessionsService } from "./services/SessionsService";
 export { TagsService } from "./services/TagsService";
 export { WorkoutsService } from "./services/WorkoutsService";
+*/
