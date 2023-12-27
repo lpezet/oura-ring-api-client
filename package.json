@@ -78,7 +78,7 @@
     "src/**/*.{js,ts,json}": "prettier --write"
   },
   "dependencies": {
-    "axios": "^0.26.1"
+    "axios": "^1.6.3"
   },
   "jest": {
     "preset": "ts-jest",
